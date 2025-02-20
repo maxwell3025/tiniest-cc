@@ -1,4 +1,4 @@
-enum token_type {
+typedef enum {
 	SEMI,
 	L_CURL,
 	R_CURL,
@@ -6,13 +6,19 @@ enum token_type {
 	SUB,
 	MUL,
 	DIV
-};
+} token_type;
 
-union token {
-	
-};
+typedef union token_data {
+		
+} token_data;
 
 typedef struct token {
-	
-	union token data;
+	token_type type;
+	token_data data;
 } token;
+
+typedef struct token_list {
+	token current;
+	struct token_list *next;
+} token_list;
+
